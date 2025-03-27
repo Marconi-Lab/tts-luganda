@@ -1,4 +1,4 @@
-# 🗣️ TTS-Luganda
+# 🗣️ Luganda-TTS
 
 This project presents a Luganda Text-to-Speech (TTS) system built using the [VITS](https://arxiv.org/abs/2106.06103) architecture for end-to-end speech synthesis.
 
