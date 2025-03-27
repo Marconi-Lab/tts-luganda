@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkpoints Comparison</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid black;
+    }
+    th {
+      background-color: #eee;
+    }
+    audio {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Checkpoints Comparison</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Sentence</th>
+        <th>Model 1</th>
+        <th>Model 2</th>
+        <th>Model 3</th>
+
+      </tr>
+    </thead>
+    <tbody id="myData">
+    </tbody>
+  </table>
+
+  <script>
+    const tableBody = document.getElementById("myData");
+    const url = "test_sentences.json";
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(sentence => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${sentence.id}</td>
+            <td>${sentence.sentence}</td>
+            <td><audio controls preload="none" src="samples/Model_1/${sentence.id}.wav"></audio></td>
+            <td><audio controls preload="none" src="samples/Model_2/${sentence.id}.wav"></audio></td>
+            <td><audio controls preload="none" src="samples/Model_3/${sentence.id}.wav"></audio></td>
+          `;
+          tableBody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
+      });
+  </script>
+</body>
+</html>
