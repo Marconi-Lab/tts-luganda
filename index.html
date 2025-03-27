@@ -1,22 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Checkpoints Comparison</title>
   <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #222;
+      margin-bottom: 30px;
+    }
+
     table {
+      width: 100%;
       border-collapse: collapse;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+      background-color: white;
     }
+
     th, td {
-      padding: 10px;
-      border: 1px solid black;
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
     }
+
     th {
-      background-color: #eee;
+      background-color: #f2f2f2;
+      font-weight: 600;
     }
+
     audio {
-      display: block;
+      width: 100%;
+      max-width: 250px;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      tr {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+      }
+
+      td {
+        padding: 10px 5px;
+      }
+
+      td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      th {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -31,27 +85,26 @@
         <th>Model 1</th>
         <th>Model 2</th>
         <th>Model 3</th>
-
       </tr>
     </thead>
-    <tbody id="myData">
-    </tbody>
+    <tbody id="myData"></tbody>
   </table>
 
   <script>
     const tableBody = document.getElementById("myData");
     const url = "test_sentences.json";
+
     fetch(url)
       .then(response => response.json())
       .then(data => {
         data.forEach(sentence => {
           const row = document.createElement("tr");
           row.innerHTML = `
-            <td>${sentence.id}</td>
-            <td>${sentence.sentence}</td>
-            <td><audio controls preload="none" src="samples/Model_1/${sentence.id}.wav"></audio></td>
-            <td><audio controls preload="none" src="samples/Model_2/${sentence.id}.wav"></audio></td>
-            <td><audio controls preload="none" src="samples/Model_3/${sentence.id}.wav"></audio></td>
+            <td data-label="ID">${sentence.id}</td>
+            <td data-label="Sentence">${sentence.sentence}</td>
+            <td data-label="Model 1"><audio controls preload="none" src="samples/Model_1/${sentence.id}.wav"></audio></td>
+            <td data-label="Model 2"><audio controls preload="none" src="samples/Model_2/${sentence.id}.wav"></audio></td>
+            <td data-label="Model 3"><audio controls preload="none" src="samples/Model_3/${sentence.id}.wav"></audio></td>
           `;
           tableBody.appendChild(row);
         });
