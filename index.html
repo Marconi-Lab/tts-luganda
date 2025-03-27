@@ -11,68 +11,78 @@
       background-color: #f9f9f9;
       color: #333;
     }
-
+  
     h1 {
       text-align: center;
       color: #222;
       margin-bottom: 30px;
     }
-
+  
     table {
       width: 100%;
       border-collapse: collapse;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
       background-color: white;
+      table-layout: fixed; /* 👈 Ensures columns obey width rules */
     }
-
+  
     th, td {
       padding: 15px;
       text-align: left;
       border-bottom: 1px solid #eee;
+      vertical-align: top;
     }
-
+  
     th {
       background-color: #f2f2f2;
       font-weight: 600;
     }
-
+  
+    td:nth-child(2) {
+      max-width: 300px; /* 👈 Limit Sentence column */
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
+    }
+  
     audio {
       width: 100%;
       max-width: 250px;
     }
-
+  
     tr:hover {
       background-color: #f9f9f9;
     }
-
+  
     @media (max-width: 768px) {
       table, thead, tbody, th, td, tr {
         display: block;
       }
-
+  
       tr {
         margin-bottom: 20px;
         border: 1px solid #ddd;
         border-radius: 5px;
         padding: 10px;
       }
-
+  
       td {
         padding: 10px 5px;
       }
-
+  
       td:before {
         content: attr(data-label);
         font-weight: bold;
         display: block;
         margin-bottom: 5px;
       }
-
+  
       th {
         display: none;
       }
     }
   </style>
+  
 </head>
 <body>
   <h1>Checkpoints Comparison</h1>
