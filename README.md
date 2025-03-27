@@ -1,15 +1,15 @@
 # 🗣️ TTS-Luganda
 
-This project contains a Luganda Text-to-Speech (TTS) system built using the [VITS](https://arxiv.org/abs/2106.06103) architecture.
+This project presents a Luganda Text-to-Speech (TTS) system built using the [VITS](https://arxiv.org/abs/2106.06103) architecture for end-to-end speech synthesis.
 
 ## 🔍 Overview
 
-- Fine-tuned VITS on 2.8 hours of professionally recorded Luganda speech (female speaker).
-- Pretrained on female speaker data from Mozilla [Common Voice Luganda](https://commonvoice.mozilla.org/lg/datasets).
-- Compare checkpoints interactively using the [GitHub Pages demo](https://your-org-name.github.io/tts-luganda/).
+- Fine-tuned a VITS model using **2.8 hours of proprietary, professionally recorded Luganda speech** from a female speaker.
+- The base model was pretrained on **female Luganda speech** from Mozilla's [Common Voice](https://commonvoice.mozilla.org/lg/datasets).
+- Compare the output of different model checkpoints interactively via our [GitHub Pages demo](https://your-org-name.github.io/tts-luganda/).
 
 ## 🚀 Demo
 
 👉 **[Live Audio Comparison Page](https://your-org-name.github.io/tts-luganda/)**  
-Listen to the same sentence generated from different model checkpoints.
+Explore how different models perform on the same input sentences through side-by-side audio playback.
 
