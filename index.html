@@ -41,7 +41,7 @@
     }
   
     td:nth-child(2) {
-      max-width: 300px; /* 👈 Limit Sentence column */
+      max-width: 500px; /* 👈 Limit Sentence column */
       overflow-wrap: break-word;
       word-wrap: break-word;
       text-overflow: ellipsis;
@@ -97,7 +97,6 @@
     <table>
       <thead>
         <tr>
-          <th>ID</th>
           <th>Sentence</th>
           <th>Model 1</th>
           <th>Model 2</th>
@@ -119,7 +118,6 @@
         data.forEach(sentence => {
           const row = document.createElement("tr");
           row.innerHTML = `
-            
             <td data-label="Sentence">${sentence.sentence}</td>
             <td data-label="Model 1"><audio controls preload="none" src="samples/Model_1/${sentence.id}.wav"></audio></td>
             <td data-label="Model 2"><audio controls preload="none" src="samples/Model_2/${sentence.id}.wav"></audio></td>
